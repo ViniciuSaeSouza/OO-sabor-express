@@ -1,19 +1,23 @@
+import os
+os.system('cls')
+
 class Restaurante:
-    nome = ''
-    categoria = ''
-    ativo = False
+    def __init__(self, nome, categoria):
+        self.nome = nome
+        self.categoria = categoria
+        self.ativo = False
+    def __str__(self):
+        return f'{self.nome} | {self.categoria} | {self.ativo}'
     
-restaurante_praca = Restaurante()
-restaurante_praca.nome = 'Praça'
-restaurante_praca.categoria = 'Italiana'
+restaurante_praca = Restaurante('Praça', 'Gourmet')
 
-categoria = Restaurante.categoria
+restaurante_seiji = Restaurante('Seiji', 'Japonesa')
 
-nome_do_restaurante = restaurante_praca.nome
-print(f'O restaunte {nome_do_restaurante} está ativo: {restaurante_praca.ativo}')
+restaurantes = [restaurante_praca,restaurante_seiji]
 
-restaurante_sushi = Restaurante()
+print(f"""
+{restaurante_praca} 
+{restaurante_seiji}
+    """)
 
-restaurantes = [restaurante_praca,restaurante_sushi]
-
-# print(vars(restaurantes))
+# print(restaurantes)
