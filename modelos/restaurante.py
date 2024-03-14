@@ -5,11 +5,15 @@ class Restaurante:
     
 restaurante_praca = Restaurante()
 restaurante_praca.nome = 'Praça'
-restaurante_praca.categoria = 'Gourmet'
-restaurante_praca.ativo = True
+restaurante_praca.categoria = 'Italiana'
+
+categoria = Restaurante.categoria
+
+nome_do_restaurante = restaurante_praca.nome
+print(f'O restaunte {nome_do_restaurante} está ativo: {restaurante_praca.ativo}')
 
 restaurante_sushi = Restaurante()
 
 restaurantes = [restaurante_praca,restaurante_sushi]
 
-print(vars(restaurante_praca))
+# print(vars(restaurantes))
