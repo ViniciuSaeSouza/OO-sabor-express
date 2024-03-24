@@ -6,18 +6,13 @@ class Restaurante:
         self.nome = nome
         self.categoria = categoria
         self.ativo = False
-    def __str__(self):
-        return f'{self.nome} | {self.categoria} | {self.ativo}'
     
-restaurante_praca = Restaurante('Praça', 'Gourmet')
+    def __str__(self):
+        return f'{self.nome} | {self.categoria} | {self.ativo}'    
+    
+restaurante_seiji = Restaurante('Seiji Sushi', 'Japonesa')
 
-restaurante_seiji = Restaurante('Seiji', 'Japonesa')
 
-restaurantes = [restaurante_praca,restaurante_seiji]
+restaurante_nina = Restaurante("Nina's", 'Gourmet')
 
-print(f"""
-{restaurante_praca} 
-{restaurante_seiji}
-    """)
-
-# print(restaurantes)
+print(restaurante_seiji)
