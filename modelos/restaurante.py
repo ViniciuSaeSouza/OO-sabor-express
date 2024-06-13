@@ -1,18 +1,25 @@
 class Restaurante:
+    restaurantes = []
     def __init__(self, nome, categoria):
-        self.nome = nome
-        self.categoria = categoria
-        self.ativo = False
+        self._nome = nome.title()
+        self._categoria = categoria.upper()
+        self._ativo = False
+        Restaurante.restaurantes.append(self)
     
     def __str__(self) -> str:
-        return f'{self.nome} || {self.categoria} || {self.ativo}'
-        
+        return f'{self._nome} || {self._categoria} || {self._ativo}'
     
-restaurante_praça = Restaurante('Praça', 'Gourmet')
+    def listar_restaurantes():
+        print(f'{"Nome do restaurante".ljust(25)} | {"Categoria".ljust(25)} | {"Status"}')
+        for restaurante in Restaurante.restaurantes:
+            print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {restaurante._ativo}')
+            
+    @property
+    def ativo(self):
+        return 'Ativo✅' if self._ativo else 'Desativado❌'
+    
+restaurante_praça = Restaurante('praça italiana', 'Gourmet')
 
-restaurante_japa = Restaurante('Seiji', 'Japonesa')
+restaurante_japa = Restaurante('seiji', 'Japonesa')
 
-restaurantes = [restaurante_praça, restaurante_japa]
-
-print(restaurante_praça)
-print(restaurante_japa)
+Restaurante.listar_restaurantes()
