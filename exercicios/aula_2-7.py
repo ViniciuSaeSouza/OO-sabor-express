@@ -38,3 +38,49 @@ class Cliente:
 minek = Cliente('Minek', 27)
 seijao = Cliente('Seijao', 27)
 pablera = Cliente('Pablera', 26)
+
+
+class Pessoa:
+    pessoas = []
+    def __init__(self, nome='', idade=0, profissao='') -> None:
+        self.nome = nome
+        self.idade = idade
+        self.profissao = profissao
+        Pessoa.pessoas.append(self)
+    
+    def __str__(self) -> str:
+        return f'Nome: {self.nome}\nIdade: {self.idade}\nProfissão: {self.profissao}'
+    
+    def aniversario(self):
+        self.idade +=1
+        
+    @property
+    def saudacao(self):
+        if self.profissao:
+            return f'Olá {self.nome}! Meu nobre {self.profissao}'
+        else:
+            return f'Olá {self.nome}!'
+
+    @classmethod
+    def listar_pessoas(cls):
+        for pessoa in Pessoa.pessoas:
+            print(f'Nome: {pessoa.nome}\nIdade: {pessoa.idade}\nProfissão: {pessoa.profissao}\n\n')
+
+
+saes = Pessoa('Saes', 28, 'Programador')
+pablera = Pessoa('Pablo', 27, 'UX/UI Designer')
+salem = Pessoa('Salem o gato', 8)
+
+print(saes)
+print(pablera)
+print(salem)
+
+print(saes.saudacao)
+print(pablera.saudacao)
+print(salem.saudacao)
+
+saes.aniversario()
+pablera.aniversario()
+salem.aniversario()
+
+Pessoa.listar_pessoas()
