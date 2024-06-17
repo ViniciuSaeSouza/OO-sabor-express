@@ -17,6 +17,7 @@ def main():
     os.system('cls')
     print(bebida_suco)
     print(prato_pizza)
+    restaurante_charles.exibir_cardapio
     
 
 

@@ -42,7 +42,7 @@ class Restaurante:
             avaliacao = Avaliacao(cliente, nota)
             self._avaliacao.append(avaliacao)
             
-    
+
     @property
     def media_avaliacoes(self):
         if not self._avaliacao:
@@ -51,17 +51,24 @@ class Restaurante:
         quantidade_notas = len(self._avaliacao)
         media_das_notas = round(soma_das_notas / quantidade_notas, 1) #arredonda as casas decimais 'round(argumento, #casas)
         return media_das_notas
-
-    # def adicionar_bebida_no_cardapio(self, bebida):
-    #     self._cardapio.append(bebida)
-    
-    # def adicionar_prato_no_cardapio(self, prato):
-    #     self._cardapio.append(prato)
     
     def adicionar_no_cardapio(self, item):
         if isinstance(item, ItemCardapio):
             self._cardapio.append(item)
- 
+
+    @property
+    def exibir_cardapio(self):
+        print(f'Cardapio do restaurante: {self._nome}\n')
+        for i,item in enumerate(self._cardapio, start=1):
+            if hasattr(item,'descricao'):
+                mensagem_prato = f'{i}. Nome: {item._nome} - Preço: R${item._preco} | Descrição: {item.descricao}'
+                print(mensagem_prato)
+            elif hasattr(item, 'tamanho'):
+                mensagem_bebida = f'{i}. Nome: {item._nome} - Preço: R${item._preco} | Tamaho: {item.tamanho}'
+                print(mensagem_bebida)
+            else:
+                mensagem = f'{i}. Nome: {item._nome} - Preço: R${item._preco}'
+                print(mensagem)
                     
     
 
